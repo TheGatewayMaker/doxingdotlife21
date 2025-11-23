@@ -56,11 +56,15 @@ export const handleGetPosts: RequestHandler = async (req, res) => {
       if (postData) {
         const mediaFiles = await listPostFiles(postId);
         const mediaFileObjects = mediaFiles
-          .map((fileName) => ({
-            name: fileName,
-            url: getMediaUrl(`posts/${postId}/${fileName}`),
-            type: getMimeType(fileName),
-          }))
+          .map((fileName) => {
+            const url = getMediaUrl(`posts/${postId}/${fileName}`);
+            console.log(`Generated URL for ${fileName}: ${url}`);
+            return {
+              name: fileName,
+              url,
+              type: getMimeType(fileName),
+            };
+          })
           .filter((f) => f.name !== "metadata.json");
 
         const post: Post = {
