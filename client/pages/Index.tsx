@@ -440,12 +440,12 @@ export default function Index() {
 
             {/* Search Bar */}
             <div
-              className="relative mb-8 animate-fadeIn"
+              className="relative mb-4 animate-fadeIn"
               style={{ animationDelay: "0.2s" }}
             >
               <input
                 type="text"
-                placeholder="Search for individuals..."
+                placeholder="Search Doxed Individuals"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-4 sm:px-5 py-3 sm:py-3.5 bg-card border-2 border-border hover:border-accent/50 rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent text-sm sm:text-base transition-all shadow-md hover:shadow-lg"
@@ -458,12 +458,6 @@ export default function Index() {
               className="mb-0 animate-fadeIn"
               style={{ animationDelay: "0.3s" }}
             >
-              <div className="flex items-center gap-2 mb-5">
-                <FilterIcon className="w-4 h-4 text-accent" />
-                <h3 className="text-xs font-black text-foreground uppercase tracking-widest">
-                  Filter by Category
-                </h3>
-              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {/* Country Dropdown */}
                 <div className="relative group">
