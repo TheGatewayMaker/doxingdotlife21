@@ -8,7 +8,7 @@ export default function DoxAnyone() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col animate-fadeIn">
+    <div className="min-h-screen bg-slate-900 text-white flex flex-col animate-fadeIn">
       <Header />
       <main className="flex-1 w-full">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
@@ -17,14 +17,14 @@ export default function DoxAnyone() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 sm:mb-4 text-yellow-500">
               Dox Anyone
             </h1>
-            <p className="text-base sm:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-400 mb-6 max-w-2xl mx-auto">
               Expose individuals publicly on our platform
             </p>
           </div>
 
           {/* Pricing Section */}
-          <div className="bg-card border-2 border-border rounded-lg sm:rounded-xl p-6 sm:p-8 mb-10 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold mb-5 sm:mb-6 text-foreground">
+          <div className="bg-slate-800 border-2 border-slate-700 rounded-lg sm:rounded-xl p-6 sm:p-8 mb-10 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold mb-5 sm:mb-6 text-white">
               Service Pricing
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
