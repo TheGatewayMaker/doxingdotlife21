@@ -79,7 +79,6 @@ export function createServer() {
   app.get("/api/demo", handleDemo);
 
   // Authentication routes
-  app.post("/api/auth/login", handleLogin);
   app.post("/api/auth/logout", handleLogout);
   app.get("/api/auth/check", handleCheckAuth);
 
