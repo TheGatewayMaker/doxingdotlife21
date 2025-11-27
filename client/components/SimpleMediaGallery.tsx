@@ -323,12 +323,12 @@ export default function SimpleMediaGallery({
       )}
 
       {/* Navigation for multiple media files */}
-      {mediaFiles.length > 1 && (
+      {filteredMediaFiles.length > 1 && (
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
           <button
             onClick={() =>
               setSelectedMediaIndex((prev) =>
-                prev === 0 ? mediaFiles.length - 1 : prev - 1,
+                prev === 0 ? filteredMediaFiles.length - 1 : prev - 1,
               )
             }
             className="p-2.5 bg-muted hover:bg-accent hover:text-accent-foreground text-muted-foreground rounded-lg transition-all hover:scale-110 active:scale-95"
@@ -338,7 +338,7 @@ export default function SimpleMediaGallery({
           </button>
 
           <div className="flex items-center gap-3 flex-wrap justify-center">
-            {mediaFiles.map((_, idx) => (
+            {filteredMediaFiles.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setSelectedMediaIndex(idx)}
@@ -348,7 +348,7 @@ export default function SimpleMediaGallery({
                     : "bg-muted hover:bg-accent/40 w-2.5 h-2.5 hover:w-3 hover:h-3"
                 }`}
                 aria-label={`Go to media ${idx + 1}`}
-                title={`File ${idx + 1}: ${mediaFiles[idx].name}`}
+                title={`File ${idx + 1}: ${filteredMediaFiles[idx].name}`}
               />
             ))}
           </div>
@@ -356,7 +356,7 @@ export default function SimpleMediaGallery({
           <button
             onClick={() =>
               setSelectedMediaIndex((prev) =>
-                prev === mediaFiles.length - 1 ? 0 : prev + 1,
+                prev === filteredMediaFiles.length - 1 ? 0 : prev + 1,
               )
             }
             className="p-2.5 bg-muted hover:bg-accent hover:text-accent-foreground text-muted-foreground rounded-lg transition-all hover:scale-110 active:scale-95"
