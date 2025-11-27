@@ -428,8 +428,9 @@ export default function UppostPanel() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Country */}
               <div>
-                <label className="block text-sm font-bold mb-3 text-foreground">
-                  🌍 Country
+                <label className="block text-sm font-bold mb-3 text-foreground flex items-center gap-2">
+                  <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                  Country
                 </label>
                 <input
                   type="text"
@@ -442,8 +443,9 @@ export default function UppostPanel() {
 
               {/* City */}
               <div>
-                <label className="block text-sm font-bold mb-3 text-foreground">
-                  🏙️ City
+                <label className="block text-sm font-bold mb-3 text-foreground flex items-center gap-2">
+                  <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  City
                 </label>
                 <input
                   type="text"
@@ -456,8 +458,9 @@ export default function UppostPanel() {
 
               {/* Server */}
               <div>
-                <label className="block text-sm font-bold mb-3 text-foreground">
-                  🖥️ Server Name
+                <label className="block text-sm font-bold mb-3 text-foreground flex items-center gap-2">
+                  <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8"/><rect x="2" y="14" width="20" height="8"/><line x1="6" y1="6" x2="6" y2="6.01"/><line x1="6" y1="18" x2="6" y2="18.01"/></svg>
+                  Server Name
                 </label>
                 <input
                   type="text"
