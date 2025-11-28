@@ -200,7 +200,10 @@ export default function PostMediaSection({
         {videos.length > 0 && (
           <div>
             <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 text-foreground">
-              <span className="text-2xl">🎬</span>
+              <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+              </svg>
               Videos ({videos.length})
             </h3>
 
