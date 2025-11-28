@@ -375,8 +375,7 @@ export default function Index() {
 
   useEffect(() => {
     let filtered = posts;
-    const hasFilters =
-      !!searchQuery || !!selectedCountry || !!selectedCity || !!selectedServer;
+    const hasFilters = !!searchQuery || !!selectedCountry || !!selectedServer;
     setHasSearchFilters(hasFilters);
 
     if (searchQuery) {
@@ -391,17 +390,13 @@ export default function Index() {
       filtered = filtered.filter((post) => post.country === selectedCountry);
     }
 
-    if (selectedCity) {
-      filtered = filtered.filter((post) => post.city === selectedCity);
-    }
-
     if (selectedServer) {
       filtered = filtered.filter((post) => post.server === selectedServer);
     }
 
     setFilteredPosts(filtered);
     setCurrentPage(1);
-  }, [posts, searchQuery, selectedCountry, selectedCity, selectedServer]);
+  }, [posts, searchQuery, selectedCountry, selectedServer]);
 
   useEffect(() => {
     const start = (currentPage - 1) * postsPerPage;
