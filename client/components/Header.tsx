@@ -50,7 +50,8 @@ export default function Header() {
             to="/dox-anyone"
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
           >
-            🔍 Dox Anyone
+            <SearchAltIcon className="w-4 h-4" />
+            Dox Anyone
           </Link>
           {isAuthenticated && (
             <>
@@ -58,13 +59,15 @@ export default function Header() {
                 to="/uppostpanel"
                 className="flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors"
               >
-                📤 Upload
+                <UploadIcon className="w-4 h-4" />
+                Upload
               </Link>
               <Link
                 to="/admin-panel"
                 className="flex items-center gap-2 px-4 py-2 bg-yellow-600 text-white font-semibold rounded-lg hover:bg-yellow-700 transition-all"
               >
-                ⚙️ Admin
+                <SettingsIcon className="w-4 h-4" />
+                Admin
               </Link>
               <button
                 onClick={handleLogout}
