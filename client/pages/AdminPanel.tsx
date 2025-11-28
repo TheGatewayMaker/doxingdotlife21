@@ -393,31 +393,28 @@ export default function AdminPanel() {
         </div>
 
         {/* Posts Management Section */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="mb-10 sm:mb-12 animate-fadeIn">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div className="mb-6 sm:mb-8 animate-fadeIn">
             {isLoadingPosts ? (
               <>
-                <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center gap-3 mb-3">
                   <span className="inline-block animate-spin">
-                    <div className="w-12 h-12 border-4 border-muted border-t-blue-600 rounded-full"></div>
+                    <div className="w-8 h-8 border-3 border-muted border-t-blue-600 rounded-full"></div>
                   </span>
                   <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                    <h2 className="text-lg font-bold text-foreground">
                       Loading Posts
                     </h2>
-                    <p className="text-muted-foreground mt-1">
-                      Fetching your posts for management...
-                    </p>
                   </div>
                 </div>
               </>
             ) : filteredPosts.length === 0 ? (
               <>
-                <div className="text-center py-16">
-                  <div className="mb-6 flex justify-center">
-                    <div className="p-4 bg-muted rounded-2xl">
+                <div className="text-center py-8">
+                  <div className="mb-3 flex justify-center">
+                    <div className="p-2 bg-muted rounded-lg">
                       <svg
-                        className="w-16 h-16 text-muted-foreground"
+                        className="w-8 h-8 text-muted-foreground"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -431,36 +428,28 @@ export default function AdminPanel() {
                       </svg>
                     </div>
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+                  <h2 className="text-lg font-bold text-foreground mb-2">
                     No Posts Found
                   </h2>
-                  <p className="text-muted-foreground max-w-md mx-auto">
+                  <p className="text-xs text-muted-foreground max-w-sm mx-auto">
                     {searchQuery || selectedCountry
-                      ? "Your search didn't match any posts. Try adjusting your filters or search terms."
-                      : "No posts available at the moment. Start by uploading new content."}
+                      ? "Your search didn't match any posts. Try adjusting your filters."
+                      : "No posts available at the moment."}
                   </p>
                 </div>
               </>
             ) : (
               <>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                   <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                      Manage Posts
+                    <h2 className="text-lg font-bold text-foreground">
+                      Manage Posts ({filteredPosts.length})
                     </h2>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      <span className="font-semibold text-foreground">
-                        {filteredPosts.length}
-                      </span>{" "}
-                      post{filteredPosts.length !== 1 ? "s" : ""} found
-                      {searchQuery || selectedCountry ? " (filtered)" : ""}
-                    </p>
                   </div>
-                  <div className="flex items-center gap-3 bg-blue-600/10 px-4 py-3 rounded-lg border border-blue-600/20">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-foreground">
-                      Displaying {displayedPosts.length} of{" "}
-                      {filteredPosts.length}
+                  <div className="flex items-center gap-2 bg-blue-600/10 px-3 py-2 rounded-md border border-blue-600/20">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs font-medium text-foreground">
+                      {displayedPosts.length} of {filteredPosts.length}
                     </span>
                   </div>
                 </div>
