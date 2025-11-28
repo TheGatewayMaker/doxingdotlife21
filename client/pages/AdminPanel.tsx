@@ -457,7 +457,7 @@ export default function AdminPanel() {
 
           {displayedPosts.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-10 sm:mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-12 sm:mb-14">
                 {displayedPosts.map((post, idx) => (
                   <AdminPostCard
                     key={post.id}
@@ -472,48 +472,56 @@ export default function AdminPanel() {
 
               {/* Pagination */}
               {totalPages > 1 && (
-                <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 animate-fadeIn">
+                <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 sm:gap-4 animate-fadeIn pt-8 border-t border-border/40">
                   <button
                     onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                     disabled={currentPage === 1}
-                    className="px-3 sm:px-4 py-2 bg-gradient-to-r from-accent to-accent/90 text-accent-foreground font-medium rounded-xl hover:shadow-lg hover:shadow-accent/40 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md active:scale-95 text-sm sm:text-base"
+                    className="px-4 sm:px-5 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-600/40 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md active:scale-95 text-sm sm:text-base flex items-center gap-2"
                   >
-                    ← Prev
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Previous
                   </button>
-                  <div className="flex items-center gap-1 flex-wrap justify-center">
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                      (page) => (
+                  <div className="flex items-center gap-1.5 flex-wrap justify-center">
+                    {Array.from({ length: Math.min(totalPages, 7) }, (_, i) => {
+                      const pageNum = currentPage > 3 ? currentPage + i - 3 : i + 1;
+                      if (pageNum > totalPages) return null;
+                      return (
                         <button
-                          key={page}
-                          onClick={() => setCurrentPage(page)}
+                          key={pageNum}
+                          onClick={() => setCurrentPage(pageNum)}
                           className={cn(
-                            "w-9 h-9 sm:w-10 sm:h-10 rounded-lg font-medium transition-all text-xs sm:text-sm shadow-sm hover:shadow-md",
-                            currentPage === page
-                              ? "bg-gradient-to-r from-accent to-accent/90 text-accent-foreground shadow-lg"
-                              : "bg-card/60 border-2 border-border/60 hover:border-accent/60 text-foreground hover:shadow-lg hover:shadow-accent/10",
+                            "w-9 h-9 sm:w-10 sm:h-10 rounded-lg font-semibold transition-all text-xs sm:text-sm shadow-sm hover:shadow-md",
+                            currentPage === pageNum
+                              ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-600/30"
+                              : "bg-card border-2 border-border hover:border-blue-500/40 text-foreground hover:shadow-lg hover:shadow-blue-500/10",
                           )}
                         >
-                          {page}
+                          {pageNum}
                         </button>
-                      ),
-                    )}
+                      );
+                    }).filter(Boolean)}
                   </div>
                   <button
                     onClick={() =>
                       setCurrentPage(Math.min(totalPages, currentPage + 1))
                     }
                     disabled={currentPage === totalPages}
-                    className="px-3 sm:px-4 py-2 bg-gradient-to-r from-accent to-accent/90 text-accent-foreground font-medium rounded-xl hover:shadow-lg hover:shadow-accent/40 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md active:scale-95 text-sm sm:text-base"
+                    className="px-4 sm:px-5 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-600/40 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md active:scale-95 text-sm sm:text-base flex items-center gap-2"
                   >
-                    Next →
+                    Next
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
                   </button>
                 </div>
               )}
             </>
           ) : (
-            <div className="text-center py-16 animate-fadeIn">
+            <div className="text-center py-12 animate-fadeIn">
               <p className="text-muted-foreground text-base sm:text-lg">
-                No posts match your search criteria. Try adjusting your filters.
+                No posts match your search criteria.
               </p>
             </div>
           )}
